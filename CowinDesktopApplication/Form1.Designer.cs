@@ -31,6 +31,7 @@ namespace CowinDesktopApplication
         {
             this.btnCall = new System.Windows.Forms.Button();
             this.richTextBoxResult = new System.Windows.Forms.RichTextBox();
+            this.comboBoxState = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCall
@@ -45,17 +46,26 @@ namespace CowinDesktopApplication
             // 
             // richTextBoxResult
             // 
-            this.richTextBoxResult.Location = new System.Drawing.Point(130, 130);
+            this.richTextBoxResult.Location = new System.Drawing.Point(498, 361);
             this.richTextBoxResult.Name = "richTextBoxResult";
             this.richTextBoxResult.Size = new System.Drawing.Size(571, 370);
             this.richTextBoxResult.TabIndex = 1;
             this.richTextBoxResult.Text = "";
             // 
+            // comboBoxState
+            // 
+            this.comboBoxState.FormattingEnabled = true;
+            this.comboBoxState.Location = new System.Drawing.Point(672, 92);
+            this.comboBoxState.Name = "comboBoxState";
+            this.comboBoxState.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxState.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 559);
+            this.ClientSize = new System.Drawing.Size(1535, 761);
+            this.Controls.Add(this.comboBoxState);
             this.Controls.Add(this.richTextBoxResult);
             this.Controls.Add(this.btnCall);
             this.Name = "Form1";
@@ -69,6 +79,7 @@ namespace CowinDesktopApplication
 
         private System.Windows.Forms.Button btnCall;
         private System.Windows.Forms.RichTextBox richTextBoxResult;
+        private System.Windows.Forms.ComboBox comboBoxState;
     }
 }
 

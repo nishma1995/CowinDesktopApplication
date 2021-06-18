@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace CowinDesktopApplication
 {
-    public class State
-    
+    public class Post
     {
-        public int state_id { get; set; }
-        public string state_name { get; set; }
+       
+            public List<State> states { get; set; }
+            public int ttl { get; set; }
+        
     }
-
-     
-
-    
 }
