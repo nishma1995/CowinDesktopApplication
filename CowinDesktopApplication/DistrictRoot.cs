@@ -11,7 +11,7 @@ namespace CowinDesktopApplication
         
         
             public List<District> districts { get; set; }
-            public int total { get; set; }
+            public int ttl { get; set; }
         
     }
 }

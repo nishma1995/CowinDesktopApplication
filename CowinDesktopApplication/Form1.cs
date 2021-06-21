@@ -23,14 +23,23 @@ namespace CowinDesktopApplication
 
         private void btnCall_Click(object sender, EventArgs e)
         {
-            List<State> states = new List<State>();
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync("https://cdn-api.co-vin.in/api/v2/admin/location/states").Result;
-            var a = response.Content.ReadAsStringAsync().Result;
-            Post post = JsonConvert.DeserializeObject<Post>(a);
-            foreach (State state in post.states)
+
+            //List<State> states = new List<State>();
+            try
             {
-                comboBoxState.Items.Add(state.state_id+"."+ state.state_name);
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync("https://cdn-api.co-vin.in/api/v2/admin/location/states").Result;
+                var responce = response.Content.ReadAsStringAsync().Result;
+                Post post = JsonConvert.DeserializeObject<Post>(responce);
+                foreach (State state in post.states)
+                {
+                    comboBoxState.Items.Add(state.state_id + "." + state.state_name);
+                }
+            }
+            catch(AggregateException)
+            {
+                MessageBox.Show("exce");
+
             }
 
             //var array = JArray.Parse(a);
@@ -55,7 +64,7 @@ namespace CowinDesktopApplication
             HttpResponseMessage response = client.GetAsync("https://cdn-api.co-vin.in/api/v2/admin/location/districts/"+id+"").Result;
             var district = response.Content.ReadAsStringAsync().Result;
              DistrictRoot districtRoot = JsonConvert.DeserializeObject<DistrictRoot>(district);
-            comboBoxDistrict.Text = "";
+            
             foreach (var item in districtRoot.districts)
             {
                
@@ -76,16 +85,34 @@ namespace CowinDesktopApplication
 
 
 
-            HttpResponseMessage response = client.GetAsync("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+id+"&date=31-03-2021").Result;
+            HttpResponseMessage response = client.GetAsync("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+id+"&date=1-04-2021").Result;
             var responce = response.Content.ReadAsStringAsync().Result;
             SessionRoot sessionRoot = JsonConvert.DeserializeObject<SessionRoot>(responce);
             comboBoxDistrict.Text = "";
             foreach (var item in sessionRoot.sessions)
             {
 
-                richTextBoxResult.Text = item.center_id + item.name + item.address + item.state_name + item.district_name + item.block_name + item.pincode + item.pincode + item.from + item.to + item.lat + item.@long + item.fee_type + item.session_id + item.date + item.available_capacity + item.available_capacity_dose1 + item.available_capacity_dose2 + item.fee + item.min_age_limit + item.vaccine + item.slots;
+                richTextBox.Text ="Centre ID:"+item.center_id +Environment.NewLine+ "Name:"+item.name + Environment.NewLine + "Address"+item.address + Environment.NewLine +"State:"+ item.state_name + Environment.NewLine +"District:"+ item.district_name + Environment.NewLine + item.block_name + Environment.NewLine + item.pincode + Environment.NewLine +"Pincode"+ item.pincode + Environment.NewLine + "From:"+item.from + Environment.NewLine + "To"+item.to + Environment.NewLine + "Latitude"+item.lat + Environment.NewLine +"Longitude"+ item.@long + Environment.NewLine +"Fee_Type" +item.fee_type + Environment.NewLine +"Session-ID"+ item.session_id + Environment.NewLine + "Date:"+item.date + Environment.NewLine +"Available-Capacity:"+ item.available_capacity + Environment.NewLine +"Capacity-Dose1:"+ item.available_capacity_dose1 + Environment.NewLine +"Capacity dose2:"+ item.available_capacity_dose2 + Environment.NewLine +"Fee:"+ item.fee + Environment.NewLine + "Age-Limit"+item.min_age_limit + Environment.NewLine +"Vaccine:"+ item.vaccine + Environment.NewLine + "Slots:"+item.slots;
 
             }
+        }
+
+        private void btnClearDistrict_Click(object sender, EventArgs e)
+        {
+            comboBoxDistrict.SelectedIndex.Equals(String.Empty);
+            comboBoxDistrict.DataSource = null;
+            comboBoxDistrict.Items.Clear();
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClearList_Click(object sender, EventArgs e)
+        {
+            richTextBox.Text = "";
         }
     }
 }
