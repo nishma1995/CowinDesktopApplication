@@ -32,6 +32,7 @@ namespace CowinDesktopApplication
             this.btnCall = new System.Windows.Forms.Button();
             this.richTextBoxResult = new System.Windows.Forms.RichTextBox();
             this.comboBoxState = new System.Windows.Forms.ComboBox();
+            this.comboBoxDistrict = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCall
@@ -55,16 +56,26 @@ namespace CowinDesktopApplication
             // comboBoxState
             // 
             this.comboBoxState.FormattingEnabled = true;
-            this.comboBoxState.Location = new System.Drawing.Point(672, 92);
+            this.comboBoxState.Location = new System.Drawing.Point(630, 71);
             this.comboBoxState.Name = "comboBoxState";
             this.comboBoxState.Size = new System.Drawing.Size(121, 24);
             this.comboBoxState.TabIndex = 2;
+            this.comboBoxState.SelectedIndexChanged += new System.EventHandler(this.comboBoxState_SelectedIndexChanged);
+            // 
+            // comboBoxDistrict
+            // 
+            this.comboBoxDistrict.FormattingEnabled = true;
+            this.comboBoxDistrict.Location = new System.Drawing.Point(844, 71);
+            this.comboBoxDistrict.Name = "comboBoxDistrict";
+            this.comboBoxDistrict.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxDistrict.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1535, 761);
+            this.Controls.Add(this.comboBoxDistrict);
             this.Controls.Add(this.comboBoxState);
             this.Controls.Add(this.richTextBoxResult);
             this.Controls.Add(this.btnCall);
@@ -80,6 +91,7 @@ namespace CowinDesktopApplication
         private System.Windows.Forms.Button btnCall;
         private System.Windows.Forms.RichTextBox richTextBoxResult;
         private System.Windows.Forms.ComboBox comboBoxState;
+        private System.Windows.Forms.ComboBox comboBoxDistrict;
     }
 }
 
