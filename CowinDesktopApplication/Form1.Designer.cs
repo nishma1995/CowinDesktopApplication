@@ -69,6 +69,7 @@ namespace CowinDesktopApplication
             this.comboBoxDistrict.Name = "comboBoxDistrict";
             this.comboBoxDistrict.Size = new System.Drawing.Size(121, 24);
             this.comboBoxDistrict.TabIndex = 3;
+            this.comboBoxDistrict.SelectedIndexChanged += new System.EventHandler(this.comboBoxDistrict_SelectedIndexChanged);
             // 
             // Form1
             // 
