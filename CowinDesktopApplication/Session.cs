@@ -33,6 +33,9 @@ namespace CowinDesktopApplication
             public List<string> slots { get; set; }
         
 
+
+
+
         
       
          
